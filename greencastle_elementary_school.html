@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greencastle Elementary School</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#183b24;background:#fff;line-height:1.6}
+:root{--green:#16823b;--dark-green:#075b2a;--light-green:#eaf7ee;--lime:#8bc34a;--cream:#f7fbf7;--dark:#17351f}
+header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 15px rgba(0,0,0,.08)}
+.navbar{max-width:1200px;margin:auto;padding:14px 25px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}.logo-icon{width:50px;height:50px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:bold}.logo h1{color:var(--dark-green);font-size:20px;line-height:1.1}.logo span{color:#666;font-size:12px}
+.navbar ul{list-style:none;display:flex;gap:27px}.navbar a{color:#183b24;text-decoration:none;font-weight:bold;font-size:15px;transition:.3s}.navbar a:hover{color:var(--green)}
+.menu-button{display:none;background:var(--green);color:#fff;border:none;font-size:25px;padding:5px 10px;border-radius:5px;cursor:pointer}
+.hero{min-height:600px;background:radial-gradient(circle at 85% 20%,rgba(139,195,74,.25),transparent 25%),linear-gradient(135deg,#075b2a,#16823b);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:50px;padding:80px max(25px,calc((100% - 1100px)/2))}
+.hero-content{max-width:650px}.welcome,.small-heading,.section-title p{color:#b9e889;font-weight:bold;letter-spacing:3px;font-size:14px}.hero h2{font-size:clamp(42px,6vw,72px);line-height:1.05;margin:15px 0 25px}.hero-description{font-size:19px;max-width:600px;margin-bottom:30px;color:#eef9f0}
+.button{display:inline-block;border:none;background:#fff;color:var(--dark-green);padding:14px 24px;border-radius:30px;font-weight:bold;text-decoration:none;cursor:pointer;transition:.3s}.button:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);border-radius:25px;padding:45px;width:330px;text-align:center}.school-icon{font-size:80px;margin-bottom:15px}.hero-card h3{font-size:25px;margin-bottom:10px}.hero-card p{color:#eef9f0}
+.section{padding:90px 25px;max-width:1200px;margin:auto}.section-title{text-align:center;margin-bottom:50px}.section-title p{color:var(--green)}.section-title h2{font-size:42px;color:var(--dark-green);margin:5px 0 15px}.section-title span{display:block;width:60px;height:4px;background:var(--lime);margin:auto;border-radius:5px}
+.subjects-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.subject-card{background:#fff;border:1px solid #e1eee4;border-radius:18px;padding:30px 20px;text-align:center;transition:.3s;box-shadow:0 5px 20px rgba(0,0,0,.05)}.subject-card:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(0,0,0,.1);border-color:var(--green)}.subject-icon{font-size:48px;margin-bottom:15px}.subject-card h3{color:var(--dark-green);font-size:22px;margin-bottom:12px}.subject-card p{color:#607064;font-size:14px;margin-bottom:20px}.subject-card button{border:none;background:var(--light-green);color:var(--dark-green);padding:9px 15px;border-radius:20px;cursor:pointer;font-weight:bold;transition:.3s}.subject-card button:hover{background:var(--green);color:#fff}
+.about{background:var(--light-green);padding:90px max(25px,calc((100% - 1100px)/2));display:flex;align-items:center;gap:80px}.about-image{min-width:400px;height:400px;background:linear-gradient(135deg,#b7e69c,#4caf50);border-radius:50% 50% 20px 50%;display:flex;align-items:center;justify-content:center;box-shadow:0 15px 40px rgba(7,91,42,.15)}.big-leaf{font-size:150px}.about-content{max-width:600px}.about-content .small-heading{color:var(--green)}.about-content h2{font-size:45px;line-height:1.1;color:var(--dark-green);margin:15px 0 25px}.about-content>p{margin-bottom:15px;color:#4f6355}.values{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}.values div{display:flex;align-items:center;gap:8px;font-weight:bold;color:var(--dark-green)}.values strong{font-size:25px}
+.events{display:grid;gap:18px}.event{display:flex;align-items:center;gap:25px;padding:20px;border-radius:15px;background:var(--cream);border-left:5px solid var(--green)}.event-date{min-width:70px;text-align:center;background:var(--green);color:#fff;padding:10px;border-radius:10px}.event-date strong{display:block;font-size:25px}.event-date span{font-size:12px}.event h3{color:var(--dark-green)}.event p{color:#66766a}
+.contact{background:var(--dark-green);color:#fff;padding:80px max(25px,calc((100% - 1100px)/2));display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.contact .small-heading{color:#a9df7d}.contact h2{font-size:42px;margin:10px 0 15px}.contact-description{color:#d2e5d6}form{display:flex;flex-direction:column;gap:15px}form input,form textarea{width:100%;border:none;border-radius:10px;padding:15px;font-family:inherit;font-size:15px;outline:none}form input:focus,form textarea:focus{box-shadow:0 0 0 3px rgba(139,195,74,.5)}form textarea{min-height:130px;resize:vertical}form .button{align-self:flex-start}#formMessage{grid-column:1/-1;text-align:center;color:#a9df7d;font-weight:bold}
+footer{background:#063b1c;color:#fff;padding:45px 25px;text-align:center}.footer-logo{display:inline-flex;align-items:center;gap:12px;text-align:left}.footer-logo p{color:#a9c9af;font-size:13px}.footer-links{margin:25px 0;display:flex;justify-content:center;flex-wrap:wrap;gap:25px}.footer-links a{color:#fff;text-decoration:none}.footer-links a:hover{color:#a9df7d}.copyright{color:#a9c9af;font-size:13px}
+.modal{display:none;position:fixed;z-index:2000;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:20px}.modal-content{background:#fff;max-width:500px;width:100%;padding:40px;border-radius:25px;text-align:center;position:relative;animation:popup .25s ease}.modal-icon{font-size:60px}@keyframes popup{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}.modal-content h2{color:var(--dark-green);font-size:32px;margin:10px 0}.modal-content p{color:#5b695f;margin-bottom:25px}.close{position:absolute;right:18px;top:12px;border:none;background:none;font-size:32px;cursor:pointer;color:#555}
+#topButton{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border:none;border-radius:50%;background:var(--green);color:#fff;font-size:22px;cursor:pointer;display:none;z-index:900;box-shadow:0 5px 15px rgba(0,0,0,.2)}
+@media(max-width:1000px){.subjects-grid{grid-template-columns:repeat(2,1fr)}.hero{padding:70px 25px}.hero-card{width:280px}.about{padding:70px 25px}}
+@media(max-width:700px){.menu-button{display:block}.navbar ul{display:none;position:absolute;top:78px;left:0;width:100%;background:#fff;flex-direction:column;padding:20px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,.08);gap:18px}.navbar ul.active{display:flex}.hero{flex-direction:column;text-align:center;padding-top:60px;padding-bottom:60px}.hero-card{width:100%;max-width:350px}.subjects-grid{grid-template-columns:1fr}.section-title h2{font-size:34px}.about{flex-direction:column;text-align:center;gap:40px}.about-image{min-width:280px;width:280px;height:280px}.big-leaf{font-size:110px}.about-content h2{font-size:36px}.values{justify-content:center}.contact{grid-template-columns:1fr;gap:35px}.contact h2{font-size:36px}}
+@media(max-width:450px){.logo h1{font-size:17px}.logo span{font-size:10px}.logo-icon{width:42px;height:42px;font-size:22px}.hero h2{font-size:42px}.event{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="navbar">
+<div class="logo"><div class="logo-icon">G</div><div><h1>Greencastle</h1><span>Elementary School</span></div></div>
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+<ul id="navLinks">
+<li><a href="#home" onclick="closeMenu()">Home</a></li>
+<li><a href="#subjects" onclick="closeMenu()">Subjects</a></li>
+<li><a href="#about" onclick="closeMenu()">About</a></li>
+<li><a href="#events" onclick="closeMenu()">Events</a></li>
+<li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<div class="hero-content">
+<p class="welcome">WELCOME TO</p>
+<h2>Greencastle<br>Elementary School</h2>
+<p class="hero-description">Learn. Explore. Grow. Discover your potential through knowledge, creativity, and skills.</p>
+<a href="#subjects" class="button">Explore Our Subjects</a>
+</div>
+<div class="hero-card">
+<div class="school-icon">🌱</div>
+<h3>Growing Great Minds</h3>
+<p>Every student has the opportunity to learn, discover, create, and succeed.</p>
+</div>
+</section>
+
+<section id="subjects" class="section">
+<div class="section-title"><p>WHAT WE LEARN</p><h2>Our Subjects</h2><span></span></div>
+<div class="subjects-grid">
+
+<div class="subject-card"><div class="subject-icon">🛠️</div><h3>Skills</h3><p>Build communication, creativity, teamwork, and problem-solving skills.</p><button onclick="showSubject('Skills')">Learn More</button></div>
+
+<div class="subject-card"><div class="subject-icon">🧮</div><h3>Math</h3><p>Explore numbers, patterns, geometry, measurement, and problem solving.</p><button onclick="showSubject('Math')">Learn More</button></div>
+
+<div class="subject-card"><div class="subject-icon">🧠</div><h3>Knowledge</h3><p>Discover new ideas and develop a strong foundation of knowledge.</p><button onclick="showSubject('Knowledge')">Learn More</button></div>
+
+<div class="subject-card"><div class="subject-icon">🔬</div><h3>Science</h3><p>Ask questions, investigate, experiment, and discover.</p><button onclick="showSubject('Science')">Learn More</button></div>
+
+<div class="subject-card"><div class="subject-icon">🌎</div><h3>Social Studies</h3><p>Learn about communities, history, geography, government, and cultures.</p><button onclick="showSubject('Social Studies')">Learn More</button></div>
+
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="about-image"><div class="big-leaf">🌿</div></div>
+<div class="about-content">
+<p class="small-heading">ABOUT OUR SCHOOL</p>
+<h2>Learning Today.<br>Leading Tomorrow.</h2>
+<p>Greencastle Elementary School is a place where students can learn, explore, ask questions, and develop the skills they need for the future.</p>
+<p>Our learning community encourages curiosity, creativity, kindness, teamwork, and academic growth.</p>
+<div class="values"><div><strong>🌱</strong><span>Grow</span></div><div><strong>📚</strong><span>Learn</span></div><div><strong>⭐</strong><span>Succeed</span></div></div>
+</div>
+</section>
+
+<section id="events" class="section">
+<div class="section-title"><p>STAY INVOLVED</p><h2>School Events</h2><span></span></div>
+<div class="events">
+
+<div class="event"><div class="event-date"><strong>01</strong><span>OCT</span></div><div><h3>Science Discovery Day</h3><p>Explore experiments and discover something new.</p></div></div>
+
+<div class="event"><div class="event-date"><strong>15</strong><span>OCT</span></div><div><h3>Math Challenge</h3><p>Put your problem-solving skills to the test.</p></div></div>
+
+<div class="event"><div class="event-date"><strong>30</strong><span>OCT</span></div><div><h3>Community Learning Day</h3><p>Learn, share, and celebrate our school community.</p></div></div>
+
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div><p class="small-heading">GET IN TOUCH</p><h2>Contact Our School</h2><p class="contact-description">Have a question? We'd love to hear from you.</p></div>
+<form id="contactForm" onsubmit="submitForm(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Your Message" required></textarea>
+<button type="submit" class="button">Send Message</button>
+</form>
+<p id="formMessage"></p>
+</section>
+
+<footer>
+<div class="footer-logo"><div class="logo-icon">G</div><div><h3>Greencastle Elementary</h3><p>Learn • Explore • Grow</p></div></div>
+<div class="footer-links"><a href="#home">Home</a><a href="#subjects">Subjects</a><a href="#about">About</a><a href="#events">Events</a><a href="#contact">Contact</a></div>
+<p class="copyright">© <span id="year"></span> Greencastle Elementary School</p>
+</footer>
+
+<div id="subjectModal" class="modal">
+<div class="modal-content">
+<button class="close" onclick="closeModal()">×</button>
+<div id="modalIcon" class="modal-icon">📚</div>
+<h2 id="modalTitle">Subject</h2>
+<p id="modalText"></p>
+<button class="button" onclick="closeModal()">Close</button>
+</div>
+</div>
+
+<button id="topButton" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
+function closeMenu(){document.getElementById("navLinks").classList.remove("active")}
+
+const subjectInfo={
+"Skills":{icon:"🛠️",text:"Students develop communication, creativity, teamwork, critical thinking, problem-solving, and other important skills that help them succeed in school and everyday life."},
+"Math":{icon:"🧮",text:"Students explore numbers, operations, patterns, geometry, measurement, data, and mathematical problem solving."},
+"Knowledge":{icon:"🧠",text:"Knowledge helps students build a strong foundation of ideas and information. Students ask questions, make connections, and discover new things."},
+"Science":{icon:"🔬",text:"Science encourages students to investigate the world around them. Students observe, ask questions, experiment, collect information, and explain what they discover."},
+"Social Studies":{icon:"🌎",text:"Social Studies helps students understand people, communities, history, geography, government, cultures, and the world around them."}
+};
+
+function showSubject(subject){
+document.getElementById("modalTitle").textContent=subject;
+document.getElementById("modalText").textContent=subjectInfo[subject].text;
+document.getElementById("modalIcon").textContent=subjectInfo[subject].icon;
+document.getElementById("subjectModal").style.display="flex";
+}
+function closeModal(){document.getElementById("subjectModal").style.display="none"}
+
+window.addEventListener("click",function(e){
+const modal=document.getElementById("subjectModal");
+if(e.target===modal)closeModal();
+});
+
+function submitForm(event){
+event.preventDefault();
+const name=document.getElementById("name").value;
+document.getElementById("formMessage").textContent=`Thank you, ${name}! Your message has been received.`;
+document.getElementById("contactForm").reset();
+}
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+window.addEventListener("scroll",function(){
+document.getElementById("topButton").style.display=window.scrollY>400?"block":"none";
+});
+</script>
+</body>
+</html>
