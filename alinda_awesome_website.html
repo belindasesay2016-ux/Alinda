@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alinda | Small Coder, Big Dreams!</title>
+<style>
+:root{--blue:#0877ff;--deep:#053b9e;--sky:#dff5ff;--white:#fff;--ink:#12315f}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#e9f8ff,#fff)}
+nav{position:sticky;top:0;z-index:10;background:rgba(4,91,220,.95);padding:14px 6%;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.logo{font-size:1.8rem;font-weight:900}.links a{color:white;text-decoration:none;margin-left:18px;font-weight:700}
+.hero{min-height:88vh;padding:55px 7%;display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;background:radial-gradient(circle at 20% 10%,#fff 0,#d9f4ff 35%,#8ed6ff 100%)}
+.tag{display:inline-block;background:#fff;color:var(--blue);padding:9px 15px;border-radius:999px;font-weight:bold;box-shadow:0 5px 20px #4aa3ff55}
+h1{font-size:clamp(3rem,7vw,6rem);margin:12px 0;color:var(--deep);line-height:.95}
+.hero p{font-size:1.3rem;line-height:1.6}.hero img{width:100%;border-radius:32px;box-shadow:0 25px 55px #06479d55;border:7px solid white}
+.btn{display:inline-block;background:var(--blue);color:white;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 8px 18px #0877ff55}
+section{padding:70px 7%;max-width:1200px;margin:auto}h2{text-align:center;color:var(--deep);font-size:2.5rem;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:white;border-radius:25px;padding:28px;box-shadow:0 10px 30px #1767a822;border:2px solid #d9efff;text-align:center}
+.icon{font-size:3rem}.card h3{color:var(--blue);font-size:1.4rem}
+.project{background:linear-gradient(135deg,#0457d8,#09a8ff);color:white;border-radius:32px;padding:38px;text-align:center}.project h2{color:white}.moles{font-size:3rem;letter-spacing:12px}
+.favorites{display:grid;grid-template-columns:1fr 1fr;gap:22px}.fav{background:#e7f7ff;padding:30px;border-radius:25px;text-align:center;font-size:1.2rem}
+footer{text-align:center;background:#053b9e;color:#fff;padding:30px;font-weight:bold}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.favorites{grid-template-columns:1fr}.links{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="logo">👑 Alinda</div><div class="links"><a href="#about">About Me</a><a href="#skills">Skills</a><a href="#project">My Game</a><a href="#favorites">Favorites</a></div></nav>
+
+<header class="hero">
+<div>
+<span class="tag">💙 Grade 2 • Creative Coder</span>
+<h1>Hi, I'm Alinda!</h1>
+<p>I love learning, creating, and coding awesome things. I use <b>Scratch</b>, practice <b>vibe coding</b>, and I can make games like <b>Whack-a-Mole!</b></p>
+<a class="btn" href="#skills">See My Awesome Skills ✨</a>
+</div>
+<img src="alinda_coding.png" alt="A young girl happily coding at a computer">
+</header>
+
+<section id="about">
+<h2>🌟 About Me</h2>
+<div class="card"><div class="icon">👋🏽</div><h3>Meet Alinda</h3><p>My name is <b>Alinda</b>. I am in <b>Grade 2</b>. I am curious, creative, and excited to learn new things. I especially love math, computers, coding, and making games!</p></div>
+</section>
+
+<section id="skills">
+<h2>💻 My Coding Skills</h2>
+<div class="grid">
+<div class="card"><div class="icon">🐱</div><h3>Scratch</h3><p>I use colorful coding blocks to create fun projects and bring my ideas to life.</p></div>
+<div class="card"><div class="icon">⌨️</div><h3>Vibe Coding</h3><p>I use my imagination and technology to help turn cool ideas into real projects.</p></div>
+<div class="card"><div class="icon">🎮</div><h3>Game Making</h3><p>I can make games, including a fun Whack-a-Mole game!</p></div>
+</div>
+</section>
+
+<section id="project">
+<div class="project"><h2>🎮 My Whack-a-Mole Game</h2><div class="moles">🔨 🐹 🕳️ 🐹</div><p>I made a Whack-a-Mole game! Making games helps me practice creativity, problem-solving, and coding.</p><button onclick="cheer()" style="border:0;border-radius:999px;padding:13px 20px;font-weight:bold;cursor:pointer">Cheer for Alinda! 🎉</button><p id="cheer"></p></div>
+</section>
+
+<section id="favorites">
+<h2>💙 My Favorite Things</h2>
+<div class="favorites">
+<div class="fav"><div class="icon">🦐🐟🦀</div><b>Favorite Food</b><br>Seafood!</div>
+<div class="fav"><div class="icon">➕➖✖️</div><b>Favorite Subject</b><br>Math!</div>
+</div>
+</section>
+
+<footer>💙 Small Coder • Big Dreams • Keep Creating, Alinda! 💙</footer>
+<script>
+function cheer(){document.getElementById('cheer').textContent='🌟 GO ALINDA! You are an awesome young coder! 🌟'}
+</script>
+</body></html>
